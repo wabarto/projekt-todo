@@ -32,7 +32,6 @@ public class TodoController implements HttpHandler {
         String path = exchange.getRequestURI().getPath().substring(BASE.length());
         String method = exchange.getRequestMethod().toUpperCase();
 
-
         try {
             if (path.isEmpty() || path.equals("/")) { // /api/todos
                 handleCollection(exchange, method);
@@ -42,6 +41,8 @@ public class TodoController implements HttpHandler {
         } catch (Exception e) {
             handleFailure(exchange, e);
         }
+
+        System.out.println("test");
     }
 
     private void handleFailure(HttpExchange exchange, Exception e) throws IOException {
